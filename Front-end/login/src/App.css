@@ -1,0 +1,20 @@
+body{
+  text-align: center;
+  margin: auto;
+}
+nav{
+  margin-top: 30px;
+}
+.link{
+  text-decoration:none ;
+  border: 2px solid black;
+  padding: 10px;
+  margin:30px;
+  color: black;
+}
+
+input{
+  width: 200px;
+  height: 40px;
+  margin: 10px;
+}
