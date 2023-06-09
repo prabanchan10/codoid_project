@@ -24,18 +24,18 @@ const User = mongoose.model("User", SchemaUser);
 app.use(express.json());
 app.use(cors());
 
-app.post("/signup", async (req, res) => {
+app.post("/api/signup", async (req, res) => {
   try {
     const { email_id, pass, userName, phone } = req.body;
     const encryptedPassword = await bcrypt.hash(pass, 10);
     await User.create({ email_id, pass: encryptedPassword, userName, phone });
     return res.status(201).json({ message: "User Created Successfully" });
-  } catch (err) {
+  } catch (error) {
     return res.status(500).json({ message: "User Creation Failed" });
   }
 });
 
-app.post("/login", async (req, res) => {
+app.post("/api/login", async (req, res) => {
   try {
     const { email_id, pass } = req.body;
     const user = await User.findOne({ email_id });
@@ -50,7 +50,7 @@ app.post("/login", async (req, res) => {
     }
     const jwt_token = jwt.sign({ email_id: user.email_id }, "Key");
     res.json({ jwt_token });
-  } catch (err) {
+  } catch (error) {
     res.status(500).json({ message: "Login failed" });
   }
 });
