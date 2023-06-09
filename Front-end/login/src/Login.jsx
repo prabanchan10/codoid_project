@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000'; 
+const API_URL = 'http://localhost:5000/api'; 
 
 function Login() {
   const [email_id, setEmail] = useState('');
@@ -20,7 +20,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
@@ -39,7 +39,7 @@ function Login() {
         <br />
         <button type="submit">Login</button>
       </form>
-    </div>
+    </>
   );
 }
 
