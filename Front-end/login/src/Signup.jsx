@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-const EntryPoint = "http://localhost:5000"; // Replace with your backend URL
+const EntryPoint = "http://localhost:5000"; 
 
 function Signup() {
   const [email_id, setEmail] = useState("");
