@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-const EntryPoint = "http://localhost:5000"; 
+const API_URL = "http://localhost:5000/api"; 
 
 function Signup() {
   const [email_id, setEmail] = useState("");
@@ -13,20 +13,20 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${EntryPoint}/signup`, {
+      const response = await axios.post(`${API_URL}/signup`, {
         email_id,
         pass,
         userName,
-        phone,
+        phone
       });
       console.log(response.data.message);
-    } catch (err) {
-      console.error("User Creation Failed", err);
+    } catch (error) {
+      console.error("User Creation Failed", error);
     }
   };
 
   return (
-    <div>
+    <>
       <h2>Signup</h2>
       <form onSubmit={handleSignup}>
         <input
@@ -62,7 +62,7 @@ function Signup() {
 
         <button type="submit">Signup</button>
       </form>
-    </div>
+    </>
   );
 }
 
