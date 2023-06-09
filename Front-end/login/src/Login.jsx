@@ -5,14 +5,14 @@ import axios from 'axios';
 const API_URL = 'http://localhost:5000/api'; 
 
 function Login() {
-  const [email_id, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const [emailid, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${API_URL}/login`, { email_id, pass });
-      console.log(response.data.token);
+      const response = await axios.post(`${API_URL}/login`, { emailid, password });
+      console.log(response.data.jwtToken);
       
     } catch (error) {
       console.error('Login failed:', error);
@@ -26,15 +26,15 @@ function Login() {
         <input
           type="email"
           placeholder="example@gmail.com"
-          value={email_id}
+          value={emailid}
           onChange={(e) => setEmail(e.target.value)}
         />
         <br />
         <input
           type="password"
           placeholder="Enter Password"
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <br />
         <button type="submit">Login</button>
