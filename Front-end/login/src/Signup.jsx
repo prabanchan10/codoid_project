@@ -5,8 +5,8 @@ import axios from "axios";
 const API_URL = "http://localhost:5000/api"; 
 
 function Signup() {
-  const [email_id, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [emailid, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [phone, setPhone] = useState("");
   
@@ -14,8 +14,8 @@ function Signup() {
     e.preventDefault();
     try {
       const response = await axios.post(`${API_URL}/signup`, {
-        email_id,
-        pass,
+        emailid,
+        password,
         userName,
         phone
       });
@@ -32,7 +32,7 @@ function Signup() {
         <input
           type="email"
           placeholder="example@gmail.com"
-          value={email_id}
+          value={emailid}
           onChange={(e) => setEmail(e.target.value)}
         />
         <br />
@@ -46,8 +46,8 @@ function Signup() {
         <input
           type="password"
           placeholder="Enter Password"
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <br />
 
